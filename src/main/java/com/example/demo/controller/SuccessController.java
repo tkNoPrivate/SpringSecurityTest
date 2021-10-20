@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * サクセスコントローラー
@@ -16,7 +16,7 @@ public class SuccessController {
      *
      * @return サクセス画面
      */
-    @RequestMapping(value = "/")
+    @PostMapping("/")
     public String init() {
 
         return "success";

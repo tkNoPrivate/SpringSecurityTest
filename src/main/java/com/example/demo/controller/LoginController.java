@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * ログインコントローラー
@@ -16,7 +16,7 @@ public class LoginController {
 	 *
 	 * @return ログイン画面
 	 */
-	@RequestMapping(value = "/login")
+	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}

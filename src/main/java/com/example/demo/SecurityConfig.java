@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginPage("/login")// ログイン画面
                 .loginProcessingUrl("/authenticate")// ログイン処理
                 .successForwardUrl("/")// 認証成功時の遷移URL
-                .failureForwardUrl("/login?error")// 認証失敗時の遷移URL
+                .failureUrl("/login?error")// 認証失敗時の遷移URL
                 .usernameParameter("username")// ユーザー名の項目名
                 .passwordParameter("password")// パスワードの項目名
                 .permitAll();
