@@ -33,11 +33,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             // ユーザーが取得出来なかった場合は例外をスローする。メッセージは隠蔽される為適当で良い。
             throw new UsernameNotFoundException("error!");
         }
-        // UserDetails実装クラスに取得情報を詰め替えて、返却する。
-        CustomUserDetails customUserDetails =
-                new CustomUserDetails(user.getUsername(), user.getPassword(), user.getRole());
 
-        return customUserDetails;
+        // UserDetails実装クラスに取得情報を詰め替えて、返却する。
+        return new CustomUserDetails(user.getUsername(), user.getPassword(), user.getRole());
     }
 
 }
