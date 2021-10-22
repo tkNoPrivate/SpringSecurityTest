@@ -6,8 +6,11 @@
 </head>
 <body>
 	<div>
-		ログイン成功！！！
+		<div>ログイン成功！！！</div>
 		<a href="/admin">あなたは管理者ページに遷移できますか？</a>
+		<form role="form" id="logout" th:action="@{/logout}" method="post">
+			<button type="submit">ログアウト</button>
+		</form>
 	</div>
 </body>
 </html>

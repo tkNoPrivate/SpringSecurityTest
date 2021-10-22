@@ -39,18 +39,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // ログイン処理の設定
         http.formLogin().loginPage("/login")// ログイン画面
                 .loginProcessingUrl("/authenticate")// ログイン処理
-                .successForwardUrl("/")// 認証成功時の遷移URL
-                .failureUrl("/login?error")// 認証失敗時の遷移URL
+                .successForwardUrl("/")// 認証成功時の処理
+                .failureUrl("/login?error")// 認証失敗時の処理
                 .usernameParameter("username")// ユーザー名の項目名
                 .passwordParameter("password")// パスワードの項目名
                 .permitAll();
 
         // ログアウトの処理
-        http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").invalidateHttpSession(true)
+        http.logout().logoutUrl("/logout")// ログアウト処理
+                .logoutSuccessUrl("/login")// ログアウト後の処理
                 .permitAll();
 
         // 権限の設定
-        http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN").anyRequest()
+        http.authorizeRequests().antMatchers("/admin")// 制限をかける処理
+                .hasRole("ADMIN")// ADMIN権限のみ"/admin"にアクセス可能
+                .anyRequest()
                 .authenticated();
 
     }
